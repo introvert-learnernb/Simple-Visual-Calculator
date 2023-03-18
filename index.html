@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- ================ Linking with RemixIcons =================  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- ================ Linking with Material Icons =================  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- ================ Linking with CSS =================  -->
+    <link rel="stylesheet" href="style.css">
+
+    
+
+
+    <title>Simple Billing System</title>
+</head>
+
+<body>
+    <!-- ================== HEADER ====================  -->
+    <header>
+        <section class="top__bar">
+            <div class="container grid">
+                <div class="top__bar__title">Simple Visual Calculator</div>
+                <div class="icon">
+                    <i class="ri-moon-line" id="theme-button"></i>
+                </div>
+            </div>
+        </section>
+    </header>
+
+
+    <!-- ================== MAIN SECTION ====================  -->
+    <main>
+        <!-- ================== DISPLAY SECTION ====================  -->
+        <section class="display__section">
+            <div class="container grid">
+                <div class="calculate">NRs <span id="display-calculate">0</span></div>
+            </div>
+        </section>
+
+        <!-- ================== TAB SECTION ====================  -->
+        <section class="tab__upper__section" >
+            <div class="container grid" >
+                <div class="tab__upper__title" id="the-list">The List
+                    <div class="total__items" id="total-item">0</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================== POP-UP MODAL ====================  -->
+        <div class="pop__up" id="pop__modal">
+            <div class="pop__up__close" id="pop-close"><i class="ri-close-line"></i></div>
+            <div class="pop__up__header">All Items</div>
+            <table cellspacing="8px">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- <tr>
+                        <td class = "item__Name">Mango [kg]</td>
+                        <td class = "item__Price">200</td>
+                        <td class = "item__Qty">
+                            <i class="ri-arrow-left-s-fill" onclick="decremented()" ></i>
+                            1
+                            <i class="ri-arrow-right-s-fill" ></i>
+                        </td>
+                        <td class = "item__Total">200</td>
+                    </tr>
+     -->
+                   
+                    
+                </tbody>
+                <tr class="last__row">
+                    <th colspan="3">Total Price</th>
+                    <th id="total-bill"></th>
+                </tr> 
+                
+            </table>
+            <button class="pop__button" onClick="window.location.reload()">Paid</button>
+        </div>
+
+        <!-- ================== TAB SECTION ====================  -->
+        <section class="tab__section">
+            <div class="container grid">
+               
+                    <div class="tab__item tablinks active" onclick="openTab(event, 'junk-food')">
+                        <span class="material-icons material-symbols-outlined tab-icons">
+                            &#xe57a </span>
+                    </div>
+                
+                
+               
+                    <div class="tab__item tablinks" onclick="openTab(event, 'cosmetics')">
+                        <span class="material-icons material-symbols-outlined tab-icons">
+                            &#xe745 </span>
+                    </div>
+               
+
+               
+                    <div class="tab__item tablinks" onclick="openTab(event, 'groceries')">
+                        <span class="material-icons material-symbols-outlined tab-icons">
+                            &#xe547 </span>
+                    </div>
+               
+
+               
+                    <div class="tab__item tablinks" onclick="openTab(event, 'fruits')">
+                        <span class="material-icons material-symbols-outlined tab-icons">
+                            &#xe545 </span>
+                    </div>
+            
+
+             
+                    <div class="tab__item tablinks" onclick="openTab(event, 'drinks')">
+                        <span class="material-icons material-symbols-outlined tab-icons">
+                            &#xf1e8 </span>
+                    </div>
+ 
+                
+            </div>
+        </section>
+
+        <!-- ================== PRODUCTS SECTION ====================  -->
+        <section class="products__section">
+            <div class="products__wrapper tabcontent active" id="junk-food" >
+                <div class="products__section__title">Junk</div>
+                <div class="line"></div>
+                <div class="container grid">
+                    <div class="product__item__box">
+                        <img src="images/product-images/junk1-food.png" alt="product image" class="product__img">
+                        <div class="product__name">Maggi</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/junk2-food.png" alt="product image" class="product__img">
+                        <div class="product__name">Kurkure</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/junk3-food.png" alt="product image" class="product__img">
+                        <div class="product__name">Lays</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/junk4-food.png" alt="product image" class="product__img">
+                        <div class="product__name">Cheese Balls</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/junk5-food.png" alt="product image" class="product__img">
+                        <div class="product__name">Current</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/junk6-food.png" alt="product image" class="product__img">
+                        <div class="product__name">Wai-Wai</div>
+                        <div class="counter">0</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="products__wrapper tabcontent" id="cosmetics" >
+                <div class="products__section__title">Cosmetics</div>
+                <div class="line"></div>
+                <div class="container grid">
+                    <div class="product__item__box">
+                        <img src="images/product-images/cosmetics-1.png" alt="product image" class="product__img">
+                        <div class="product__name">Nivea Shampoo</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/cosmetics-2.png" alt="product image" class="product__img">
+                        <div class="product__name">Fair & Lovely Cream</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/cosmetics-3.png" alt="product image" class="product__img">
+                        <div class="product__name">Dove Conditioner</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/cosmetics-4.png" alt="product image" class="product__img">
+                        <div class="product__name">Lakme Cream</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/cosmetics-5.png" alt="product image" class="product__img">
+                        <div class="product__name">baby lip balm</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/cosmetics-6.png" alt="product image" class="product__img">
+                        <div class="product__name">Nivea Conditioner</div>
+                        <div class="counter">0</div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="products__wrapper tabcontent" id="groceries" >
+                <div class="products__section__title">Groceries</div>
+                <div class="line"></div>
+                <div class="container grid">
+                    <div class="product__item__box">
+                        <img src="images/product-images/groceries-1.png" alt="product image" class="product__img">
+                        <div class="product__name">kellogs Oats</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/groceries-2.png" alt="product image" class="product__img">
+                        <div class="product__name">Aashirvad Aata</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/groceries-3.png" alt="product image" class="product__img">
+                        <div class="product__name">Sugar [1kg]</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/groceries-4.png" alt="product image" class="product__img">
+                        <div class="product__name">Tata Salt</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/groceries-5.png" alt="product image" class="product__img">
+                        <div class="product__name">Basmati Rice</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/groceries-6.png" alt="product image" class="product__img">
+                        <div class="product__name">Bread</div>
+                        <div class="counter">0</div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="products__wrapper tabcontent" id="fruits" >
+                <div class="products__section__title">Fruits & Veggies</div>
+                <div class="line"></div>
+                <div class="container grid">
+                    <div class="product__item__box">
+                        <img src="images/product-images/fruit-1.png" alt="product image" class="product__img">
+                        <div class="product__name">Apple</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/fruit-2.png" alt="product image" class="product__img">
+                        <div class="product__name">Grapes</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/fruit-3.png" alt="product image" class="product__img">
+                        <div class="product__name">Oranges</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/fruit-4.png" alt="product image" class="product__img">
+                        <div class="product__name">Mango</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/fruit-5.png" alt="product image" class="product__img">
+                        <div class="product__name">Pineapple</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/fruit-6.png" alt="product image" class="product__img">
+                        <div class="product__name">Pomogranate</div>
+                        <div class="counter">0</div>
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="products__wrapper tabcontent" id="drinks" >
+                <div class="products__section__title">Drinks</div>
+                <div class="line"></div>
+                <div class="container grid">
+                    <div class="product__item__box">
+                        <img src="images/product-images/drinks1.png" alt="product image" class="product__img">
+                        <div class="product__name">Maaza</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/drinks2.png" alt="product image" class="product__img">
+                        <div class="product__name">Sprite</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/drinks3.png" alt="product image" class="product__img">
+                        <div class="product__name">Fanta</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/drinks4.png" alt="product image" class="product__img">
+                        <div class="product__name">Cococola</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/drinks5.png" alt="product image" class="product__img">
+                        <div class="product__name">Frooti</div>
+                        <div class="counter">0</div>
+                    </div>
+                    <div class="product__item__box">
+                        <img src="images/product-images/drinks6.png" alt="product image" class="product__img">
+                        <div class="product__name">Red Bull</div>
+                        <div class="counter">0</div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ================ Linking with JS =================  -->
+    <script src="main.js" type="module"></script> // module was created for importing and exporting objs..
+    <script src="products.js" type="module"></script>
+    
+</body>
+
+</html>
