@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { product__details } from "./products.js";
+=======
+>>>>>>> 3d27426 (previous changes to be pushed..)
 
 
 //to make working tabs.... 
@@ -21,6 +24,7 @@ window.openTab = function (evt, category) {
 };
 
 
+<<<<<<< HEAD
 // it returns an array of elements having class (product__item__box)
 const box = document.getElementsByClassName("product__item__box");
 
@@ -107,12 +111,152 @@ tableBody.innerHTML = str;
 
   // console.log(totalItems);
 
+=======
+
+
+
+let product__boxes = document.getElementsByClassName('product__item__box');
+let cart__icons = document.getElementsByClassName('counter');
+let totalCounter = 0;
+let totalListNumber = document.getElementById('total-item');
+let displayCounter = document.getElementById('display-calculate');
+
+for(let i = 0; i < product__boxes.length ; i++){
+  let product__box = product__boxes[i];
+  let cart__icon = cart__icons[i];
+  cart__icon.addEventListener('click', cartButtonGlow);
+  cart__icon.addEventListener('click', productBoxClicked);
+ 
+
+  function productBoxClicked(){
+    let productName = product__box.querySelector('.product__name');
+    let productPrice = product__box.querySelector('.product__price');
+    let productimgSrc = product__box.querySelector('.product__img').src;
+    console.log(productName,productPrice,productimgSrc);
+    addItemToCart(productName,productPrice,productimgSrc);
+    
+    updateTotal();
+  }
+
+
+  function addItemToCart(productName,productPrice,productimgSrc){
+    let cartRow = document.createElement('tr');
+    cartRow.classList.add('cartRow');
+    console.log(cartRow);
+
+    let Name = productName.innerText;
+    let Price = productPrice.innerText;
+
+    let cartItem = document.getElementById('tableBody');
+    let cartItemNames = cartItem.getElementsByClassName('cart__name');
+    for(let i = 0 ; i < cartItemNames.length ; i++){
+      if(cartItemNames[i].innerText === productName.innerText){
+        alert('This item is already added.');
+        return;
+      }
+    }
+
+    totalCounter++;
+    totalListNumber.innerText = totalCounter;
+
+    let cartRowContents = `
+    <td class = "cart__item">
+        <div class="cart__img"><img src="${productimgSrc}" alt="cart image"></div>
+        <div class="cart__name">${Name}</div>
+    </td>
+    <td class = "item__Price">${Price}</td>
+    <td class = "item__Qty">
+        <input type="number"  class="cart__qty"  value="1" >
+        <button class="delete__btn btn"><i class="ri-close-fill"></i></button>
+    </td>
+    
+    `;
+
+    cartRow.innerHTML = cartRowContents;
+    cartItem.append(cartRow);
+    cartRow.querySelector('.delete__btn').addEventListener('click',removeCartItem);
+    cartRow.querySelector('.cart__qty').addEventListener('change', quantityChanged);
+  }
+
+  function cartButtonGlow(event){
+    let counterCircle = product__box.getElementsByClassName('counter')[0];
+    counterCircle.classList.add('active');
+    console.log(counterCircle);
+    console.log('clicked');
+  }
+}
+
+
+let deleteBtns = document.getElementsByClassName('delete__btn');
+for (let i = 0 ; i < deleteBtns.length ; i++){
+  let deleteBtn = deleteBtns[i];
+  deleteBtn.addEventListener('click', removeCartItem);
+  
+}
+
+function removeCartItem(event){
+  let item = event.target;
+  let cartRow = item.parentElement.parentElement;
+  cartRow.remove();
+  --totalCounter;
+  totalListNumber.innerText = totalCounter;
+  updateTotal();
+}
+
+
+let quantityBtns = document.getElementsByClassName('cart__qty');
+for(let i = 0 ; i < quantityBtns.length ; i++){
+  let quantityBtn = quantityBtns[i];
+  quantityBtn.addEventListener('change', quantityChanged);
+
+}
+
+function quantityChanged(event){
+  let item = event.target;
+  let value = item.value;
+  console.log(value);
+  console.log('quantity changed');
+  if(value <= 0 || isNaN(value)){
+    quantityBtn.value = 1;
+  }
+  updateTotal();
+}
+
+
+let paidBtn = document.querySelector('.paid__btn');
+paidBtn.addEventListener('click', paidClicked);
+
+function paidClicked(){
+  alert('Thank you for your purchase!!!')
+  let cartBody = document.getElementById('tableBody');
+  while(cartBody.hasChildNodes()){
+    cartBody.removeChild(cartBody.firstChild);
+  }
+  updateTotal();
+  location.reload();
+>>>>>>> 3d27426 (previous changes to be pushed..)
 }
 
 
 
+<<<<<<< HEAD
 
 
+=======
+function updateTotal(){
+  let cartRows = document.getElementsByClassName('cartRow');
+  let total = 0;
+  for (let i = 0; i < cartRows.length; i++){
+    let cartRow = cartRows[i];
+    let cartPrice = cartRow.getElementsByClassName('item__Price')[0];
+    let cartQty = cartRow.getElementsByClassName('cart__qty')[0];
+    total += Number(cartPrice.innerText.replace('NRs','')) * cartQty.value;
+    // console.log(total);
+  }
+  document.querySelector('.cart__total').innerText = total;
+  displayCounter.innerText = total;
+}
+>>>>>>> 3d27426 (previous changes to be pushed..)
 
 
 
@@ -163,6 +307,7 @@ close.addEventListener('click', function () {
 });
 
 
+<<<<<<< HEAD
 // /* ======================== GETTING THE NAMES OF ELEMENTS FROM OBJECTS ============== */
 let nameProduct = document.querySelectorAll('.product__name');
 
@@ -172,6 +317,9 @@ for (let i = 0; i < nameProduct.length; i++) {
   nameProduct[i].innerText = product__details[i]['Name'];
 
 }
+=======
+
+>>>>>>> 3d27426 (previous changes to be pushed..)
 
 
 

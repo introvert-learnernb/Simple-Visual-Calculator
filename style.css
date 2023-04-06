@@ -21,6 +21,10 @@ a{
 }
 
 :root{
+<<<<<<< HEAD
+=======
+    --our-red:#ff475f;
+>>>>>>> 3d27426 (previous changes to be pushed..)
     --our-yellow:#FFCD29;
     --our-purple:#9747FF;
     --our-white:#FFF;
@@ -61,6 +65,13 @@ body.dark-theme{
     --our-purple:#222;
 }
 
+<<<<<<< HEAD
+=======
+body.dark-theme .tab__section .tab__item.active{
+    color:var(--our-red);
+}
+
+>>>>>>> 3d27426 (previous changes to be pushed..)
 
 
 
@@ -188,7 +199,12 @@ body.dark-theme{
 }
 
 .pop__up table{
+<<<<<<< HEAD
     margin:1.2rem 0.8rem;
+=======
+    margin:0 auto;
+    /* margin:1.2rem 0.8rem; */
+>>>>>>> 3d27426 (previous changes to be pushed..)
     text-align: center;
 }
 
@@ -229,6 +245,65 @@ i.ri-arrow-left-s-fill{
     cursor:pointer;
 }
 
+<<<<<<< HEAD
+=======
+.cart__item .cart__img{
+    width:2rem;
+}
+
+.cart__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart__qty{
+    width:2rem;
+}
+
+.btn{
+    background-color: whitesmoke;
+    color:black;
+    font-size: var(--small-font-size);
+    font-family: "Ubuntu Mono", monospace;
+    border: none;
+    outline: none;
+   
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.delete__btn{
+    border-radius: 50%;
+    width:1.2rem;
+    height:1.2rem;
+}
+
+.delete__btn i{
+    pointer-events: none;
+}
+
+.btn:hover{
+    background-color:var(--our-red);
+    color:white;
+}
+
+
+
+.paid__btn{
+    padding:0.2rem 0.8rem;
+    border-radius:0.2rem;
+}
+
+.paid__btn:hover{
+    background-color:var(--our-yellow);
+    color:var(--our-black);
+}
+
+
+
+>>>>>>> 3d27426 (previous changes to be pushed..)
 
 /* =========== TAB SECTION =========== */
 .tab__section .grid{
@@ -339,12 +414,24 @@ i.ri-arrow-left-s-fill{
     padding:0.5rem 1rem;
     border-radius: var(--border-radius);
     position: relative;
+<<<<<<< HEAD
      cursor: pointer; 
+=======
+    /* cursor: pointer; */
+>>>>>>> 3d27426 (previous changes to be pushed..)
     text-align: center;
     line-height: 1.2rem;
     /* gap:0.2rem; */
 }
 
+<<<<<<< HEAD
+=======
+.products__section .product__item__box .product__price{
+    font-size: 0.8rem;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+>>>>>>> 3d27426 (previous changes to be pushed..)
 .products__section .product__item__box .product__img{
     width:80%;
     max-height:80%;
@@ -364,12 +451,25 @@ i.ri-arrow-left-s-fill{
     top:-0.4rem;
     right:-0.2rem;
     z-index: 1000;
+<<<<<<< HEAD
+=======
+    padding:0.8rem;
+    cursor: pointer;
+}
+
+.products__section .product__item__box .counter.active{
+    background-color: #ff475f;
+>>>>>>> 3d27426 (previous changes to be pushed..)
 }
 
 
 
 /*===================== ADDING BREAKPOINTS ================= */
+<<<<<<< HEAD
 @media only screen and (max-width:270px){
+=======
+@media only screen and (max-width:300px){
+>>>>>>> 3d27426 (previous changes to be pushed..)
     .pop__up{
        width:90%;
     }
@@ -398,6 +498,24 @@ i.ri-arrow-left-s-fill{
     .top__bar .top__bar__title{
         margin-left: 5rem;
     }
+<<<<<<< HEAD
+=======
+
+    .pop__up{
+        max-width:350px;
+     }
+
+    .pop__up .cart__item{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: top;
+    }
+
+    .cart__item .cart__img{
+        width:2.4rem;
+    }
+>>>>>>> 3d27426 (previous changes to be pushed..)
 }
 
 @media only screen and (min-width: 750px){
@@ -410,8 +528,25 @@ i.ri-arrow-left-s-fill{
         height:2rem;
     }
 
+<<<<<<< HEAD
     .products__section .product__item__box{
         max-width:250px;
+=======
+    .products__section .grid{
+        column-gap:2rem;
+    }
+
+    .products__section .product__item__box .product__price{
+        font-size:1rem;
+    }
+    .products__section .product__item__box .product__name{
+        font-size:1.2rem;
+    }
+
+
+    .products__section .product__item__box{
+        max-width:200px;
+>>>>>>> 3d27426 (previous changes to be pushed..)
     }
 
     .top__bar .top__bar__title{
@@ -428,4 +563,13 @@ i.ri-arrow-left-s-fill{
     .top__bar .top__bar__title{
         margin-left: 14rem;
     }
+<<<<<<< HEAD
 }
+=======
+
+    .products__wrapper .container{
+        margin:auto;
+        max-width:80%;
+    }
+}
+>>>>>>> 3d27426 (previous changes to be pushed..)
