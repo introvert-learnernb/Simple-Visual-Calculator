@@ -1,118 +1,3 @@
-<<<<<<< HEAD
-import { product__details } from "./products.js";
-=======
->>>>>>> 3d27426 (previous changes to be pushed..)
-
-
-//to make working tabs.... 
-// window. is written to make openTab function of global scope so that 
-// onclick can work in index.html...
-
-window.openTab = function (evt, category) {
-  let i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  document.getElementById(category).style.display = "block";
-  evt.currentTarget.className += " active";
-};
-
-
-<<<<<<< HEAD
-// it returns an array of elements having class (product__item__box)
-const box = document.getElementsByClassName("product__item__box");
-
-// it returns the list item 
-let totalItem = document.getElementById('total-item'); // total-counter
-
-//it loops through each element of the array box...
-let totalCounter = 0;
-
-/*============== Making changes to the modal ============ */
-
-
-
-
-let tableBody = document.getElementById('tableBody');
-let str = "";
-let totalBill = document.getElementById('total-bill');
-let totalBillNumber = 0;
-let displayCounter = document.getElementById('display-calculate');
-
-
-
-for (let i = 0; i < box.length; i++) {
-
-  box[i].addEventListener("click", function() {
-
-    let counter = document.getElementsByClassName('counter')[i];
-    let counterNumber = counter.innerText;
-    if (counterNumber == 0) {
-      ++counterNumber;
-      counter.innerText = counterNumber;
-
-      totalCounter++;
-      totalItem.innerText = totalCounter;
-
-
-      let product__Name = [];
-    let product__Price = [];
-    let product__Qty = [];
-    let product__Total = [];
-    product__Name[i] = product__details[i]['Name'];
-    product__Price[i] = product__details[i]['Price'];
-    product__Qty[i] = counterNumber;
-    product__Total[i] = product__Qty[i] * product__Price[i];
-    
-    totalBillNumber += product__Total[i];
-    totalBill.innerText = totalBillNumber;
-    displayCounter.innerText = totalBillNumber;
-
-    window.decremented = function () {
-      product__Qty[i]--;
-      console.log(product__Qty);
-    };
-
-    window.incremented = function () {
-      product__Qty[i]++;
-      console.log(product__Qty);
-    };
-
-    str += `
-    <tr>
-      <td class = "item__Name">${product__Name[i]}</td>
-      <td class = "item__Price">${product__Price[i]}</td>
-      <td class = "item__Qty">
-      <i class="ri-arrow-left-s-fill" onclick="decremented()"></i>${product__Qty[i]}<i class="ri-arrow-right-s-fill" onclick="incremented()" ></i>
-      </td>
-      <td class = "item__Total">${product__Total[i]}</td>
-    </tr>
-`;
-
-    
-tableBody.innerHTML = str;
-
-    } else {
-      box[i].disabled = true;
-
-    }
-
-  
-
-  })
-
-
-
-  // console.log(totalItems);
-
-=======
-
 
 
 let product__boxes = document.getElementsByClassName('product__item__box');
@@ -234,15 +119,10 @@ function paidClicked(){
   }
   updateTotal();
   location.reload();
->>>>>>> 3d27426 (previous changes to be pushed..)
 }
 
 
 
-<<<<<<< HEAD
-
-
-=======
 function updateTotal(){
   let cartRows = document.getElementsByClassName('cartRow');
   let total = 0;
@@ -256,7 +136,6 @@ function updateTotal(){
   document.querySelector('.cart__total').innerText = total;
   displayCounter.innerText = total;
 }
->>>>>>> 3d27426 (previous changes to be pushed..)
 
 
 
@@ -306,20 +185,46 @@ close.addEventListener('click', function () {
   modal.classList.remove('active');
 });
 
+//making working tabs....
 
-<<<<<<< HEAD
-// /* ======================== GETTING THE NAMES OF ELEMENTS FROM OBJECTS ============== */
-let nameProduct = document.querySelectorAll('.product__name');
+const tabBtns = document.querySelectorAll('.tab__item');
+const contents = document.querySelectorAll('.tabcontent');
+// console.log(tabBtns);
+
+tabBtns.forEach((btn)=>{
+  btn.addEventListener('click',(e)=>{
+
+    //looping through all the buttons and removing active class...
+    tabBtns.forEach((button)=>{
+      if(button.classList.contains('active')){
+        button.classList.remove('active');
+      }
+    })
+
+    //adding active class to clicked btn...
+    const clickedBtn = e.currentTarget;
+    clickedBtn.classList.add('active');
+
+
+    const id = clickedBtn.dataset.id;
+    const desiredContent = document.getElementById(id);
+
+    //looping through all the contents and removing active class..
+    contents.forEach((content)=>{
+      if(content.classList.contains('active')){
+        content.classList.remove('active');
+      }
+    })
+
+
+    //adding active class to the content which has corresponding id to button..
+    desiredContent.classList.add('active');
+
+  })
+})
 
 
 
-for (let i = 0; i < nameProduct.length; i++) {
-  nameProduct[i].innerText = product__details[i]['Name'];
-
-}
-=======
-
->>>>>>> 3d27426 (previous changes to be pushed..)
 
 
 
